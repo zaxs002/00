@@ -1,0 +1,185 @@
+<!--S:Main-->
+	{CLIENT}
+	{CART}
+<!--E:Main-->
+
+<!--S:Client-->
+<table cellspacing="0" cellpadding="0" width="100%">
+    <tbody>
+        <tr>
+            <td valign="top">
+				<h2 style="font: bold 16px arial;">订单信息</h2>
+				<table cellspacing="1" cellpadding="4" width="100%">
+					<tbody>
+						<tr>
+							<td bgcolor="#cccccc"><b>订单ID#</b></td>
+							<td bgcolor="#efefef">{ORDER_CODE}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>顺丰单号#:</b></td>
+							<td bgcolor="#efefef">{ORDER_TRANS_ID}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>日期:</b></td>
+							<td bgcolor="#efefef">{ORDER_DATE}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>状态:</b></td>
+							<td bgcolor="#efefef">{STATUS}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>E-Mail:</b></td>
+							<td bgcolor="#efefef">{ORDER_BILLING_EMAIL}</td>
+						</tr>
+						<tr>
+							<td colspan="2">				
+								<h2 style="font: bold 16px arial;">配送信息</h2>
+							</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>姓名:</b></td>
+							<td bgcolor="#efefef">{ORDER_BILLING_FIRST_NAME}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>地址:</b></td>
+							<td bgcolor="#efefef">{ORDER_BILLING_ADDRESS_1} {ORDER_BILLING_ADDRESS_2}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>城市:</b></td>
+							<td bgcolor="#efefef">{ORDER_BILLING_CITY}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>省份:</b></td>
+							<td bgcolor="#efefef">{ORDER_BILLING_STATE}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>邮政编码:</b></td>
+							<td bgcolor="#efefef">{ORDER_BILLING_ZIP}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>收款的手机或支付宝帐号:</b></td>
+							<td bgcolor="#efefef">{ORDER_BILLING_LAST_NAME}</td>
+						</tr>
+					</tbody>
+				</table>
+            </td>
+			<td>
+				<h2 style="font: bold 16px arial;">订单详情</h2>
+				<table cellspacing="1" cellpadding="4" width="100%">
+					<tbody>
+						<tr>
+							<td bgcolor="#cccccc"><b>商品总价</b></td>
+							<td align="right" bgcolor="#efefef">{ORDER_PRICE_SUBTOTAL}人民币</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>配送费用:</b></td>
+							<td align="right" bgcolor="#efefef">{ORDER_PRICE_SHIPPING}人民币</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>税:</b></td>
+							<td align="right" bgcolor="#efefef">{ORDER_PRICE_TAX}人民币</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>折扣:</b></td>
+							<td align="right" bgcolor="#efefef">{ORDER_PRICE_DISCOUNT}人民币</td>
+						<tr>
+							<td bgcolor="#cccccc"><b>总价:</b></td>
+							<td align="right" bgcolor="#efefef">{ORDER_PRICE_TOTAL}人民币</td>
+						</tr>
+						<tr>
+							<td colspan="2">				
+								<h2 style="font: bold 16px arial;">实际配送信息(若买家没有更改则为空)</h2>
+							</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>姓名:</b></td>
+							<td bgcolor="#efefef">{ORDER_SHIPPING_FIRST_NAME}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>地址:</b></td>
+							<td bgcolor="#efefef">{ORDER_SHIPPING_ADDRESS_1} {ORDER_SHIPPING_ADDRESS_2}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>城市:</b></td>
+							<td bgcolor="#efefef">{ORDER_SHIPPING_CITY}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>省份:</b></td>
+							<td bgcolor="#efefef">{ORDER_SHIPPING_STATE}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>邮政编码:</b></td>
+							<td bgcolor="#efefef">{ORDER_SHIPPING_ZIP}</td>
+						</tr>
+						<tr>
+							<td bgcolor="#cccccc"><b>收款的手机或支付宝帐号:</b></td>
+							<td bgcolor="#efefef">{ORDER_BILLING_LAST_NAME}</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+    </tbody>
+</table>
+
+<!--E:Client-->
+
+<!--S:CartNFGroup-->
+	<table cellspacing="1" cellpadding="4" width="100%">
+			<tr>
+				<td><B>编号.</B></td>
+				<td><b>商品名称</b></td>
+				<td><b>单价</b></td>
+				<td><b>数量</b></td>
+				<td><b>总价</b></td>
+			</tr>
+			{DATA}
+	</table>
+<!--E:CartNFGroup-->
+
+<!--S:CartNFElement-->
+			<tr>
+				<td bgcolor="#efefef">{CNT}.</td>
+				<td bgcolor="#efefef">{ITEM_PRODUCT}<br><small>{ITEM_OPTIONS}</small></td>
+				<td align="right" bgcolor="#efefef">{ITEM_PRICE}人民币</td>
+				<td align="center" bgcolor="#efefef">{ITEM_QUANTITY}</td>
+				<td align="right" bgcolor="#efefef">{ITEM_TOTAL}人民币</td>
+			</tr>
+<!--E:CartNFElement-->
+
+<!--S:CartGroup-->
+	<table cellspacing="1" cellpadding="4" width="100%">
+			<tr>
+				<td><B>编号.</B></td>
+				<td><b>商品名称</b></td>
+				<td><b>单价</b></td>
+				<td><b>数量</b></td>
+				<td><b>总价</b></td>
+				<td><b>文件</b></td>
+			</tr>
+			{DATA}
+	</table>
+<!--E:CartGroup-->
+
+<!--S:CartElement-->
+			<tr>
+				<td bgcolor="#efefef">{CNT}.</td>
+				<td bgcolor="#efefef">{ITEM_PRODUCT}<br><small>{ITEM_OPTIONS}</small></td>
+				<td align="right" bgcolor="#efefef">{ITEM_PRICE} {ORDER_PRICE_CURRENCY}</td>
+				<td align="center" bgcolor="#efefef">{ITEM_QUANTITY}</td>
+				<td align="right" bgcolor="#efefef">{ITEM_TOTAL} {ORDER_PRICE_CURRENCY}</td>
+				<td bgcolor="#efefef">{DOWNLOAD}</td>
+			</tr>
+<!--E:CartElement-->
+
+<!--S:DownloadGroup-->
+	<ul>
+		{DATA}
+	</ul>
+<!--E:DownloadGroup-->
+
+<!--S:DownloadElement-->
+		<li><a href="{SITE:URL}order-download.php?o={ORDER_CODE}&f={ITEM_ID}">{ITEM_TITLE}</a></li>
+<!--E:DownloadElement-->
+
+<!--S:NoDownload--><center>N/A</center><!--E:NoDownload-->

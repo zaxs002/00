@@ -1,0 +1,100 @@
+<form>
+	<title>Edit Order</title>
+	<action>{SELF.URI.STORE}</action>
+	<name>edit</name>
+	<width>100%</width>
+	<alternance>true</alternance>
+	<encoding>multipart/form-data</encoding>
+
+
+	<formtag>true</formtag>
+	<border>true</border>
+
+	
+	<buttons>		
+		<set>
+			<header>true</header>
+		</set>
+
+
+		<button_back onclick="" button="return">
+			<location>{PRIVATE.FORM_PREVIOUS_PAGE}</location>
+		</button_back>
+
+		<button_edit onclick="" button="edit">
+			<location>{SELF.URI.EDIT}</location>
+		</button_edit>
+
+		<button_save button="saveall">
+			<location>javascript:document.forms[0].submit();</location>
+		</button_save>
+
+	</buttons>
+
+	<redirect>{PHP}?sub=accounts</redirect>
+
+	<vars>
+		<curr import="order_price_currency" type="value" />
+	</vars>
+
+	<fields>
+		<order_id type="hidden"/>		
+
+		<order_status type="radiolist" title="订单状态" newline="false">
+			<options>
+				<option name="">暂时的</option>
+				<option name="1">准备发货</option>
+				<option name="2">完成交易</option>
+				<option name="3">拒绝</option>
+				<option name="4">取消</option>
+				<option name="5">已发货</option>
+			</options>
+		</order_status>
+		<order_note type="textarea" title="备注" size="60:3"/>
+
+		<send_mail title="发送提醒邮件" type="checkbox" checked="1" label="向客户发送邮件提醒订单已变化(发货时必选)" />
+
+		<subtitle type="subtitle" title="订单" />
+		<order_code type="text" title="订单ID#" />
+		<order_trans_id type="textbox" title="快递单号#" size="30"/>
+
+		<order_date type="text" title="订单时间" action="date" params="d M Y g:i:a"/>
+		<order_payment_date type="text" title="支付时间" action="date" params="d M Y g:i:a"/>
+		<order_payment_method_name type="text" title="Merchant" />
+
+		<subtitle4 type="subtitle" title="价格" />	
+		<order_price_currency type="text" title="货币"/>
+		<order_price_subtotal type="text" title="小计"/>
+		<order_price_discount type="text" title="折扣"/>
+		<order_price_tax type="text" title="税费" />
+		<order_price_shipping type="text" title="运费" />
+		<order_price_total type="text" title="总价" />
+		<order_price_shipping_name type="text" title="Carrier" />
+
+
+		<subtitle2 type="subtitle" title="Billing Address" />	
+
+		<order_billing_first_name type="text" title="姓名"/>
+		<order_billing_last_name type="text" title="收款的手机或支付宝帐号"/>
+		<order_billing_address_1 type="text" title="地址一" />
+		<order_billing_address_2 type="text" title="地址二" />
+		<order_billing_city type="text" title="城市" />
+		<order_billing_state type="text" title="省份" />
+		<order_billing_zip type="text" title="邮政编码" />
+		<order_billing_country type="text" title="国家" />
+		<order_billing_email type="text" title="电子邮箱" />
+
+		<subtitle3 type="subtitle" title="Shipping Address" />	
+
+		<order_shipping_first_name type="text" title="姓名"/>
+		<order_shipping_last_name type="text" title="收款的手机或支付宝帐号"/>
+		<order_shipping_address_1 type="text" title="地址一" />
+		<order_shipping_address_2 type="text" title="地址二" />
+		<order_shipping_city type="text" title="城市" />
+		<order_shipping_state type="text" title="省份" />
+		<order_shipping_zip type="text" title="邮政编码" />
+		<order_shipping_country type="text" title="国家" />
+
+	</fields>
+
+</form>
